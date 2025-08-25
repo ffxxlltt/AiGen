@@ -1,5 +1,10 @@
 #include <stdio.h>
 
+//增加函数提前声明
+void quickSort(int arr[], int low, int high);
+void printArray(int arr[], int size);
+
+
 void quickSort(int arr[], int low, int high) {
     if (low < high) {
         int pivot = arr[high];
