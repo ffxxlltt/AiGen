@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电商订单管理系统</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>订单管理系统</h1>
+            <div class="header-actions">
+                <button class="btn btn-primary" onclick="refreshOrders()">刷新</button>
+            </div>
+        </header>
+
+        <div class="search-section">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="搜索订单号、商品名称或客户姓名...">
+                <button class="btn" onclick="searchOrders()">搜索</button>
+            </div>
+            
+            <div class="filters">
+                <select id="statusFilter">
+                    <option value="">所有状态</option>
+                    <option value="pending">待付款</option>
+                    <option value="paid">已付款</option>
+                    <option value="shipped">已发货</option>
+                    <option value="completed">已完成</option>
+                    <option value="cancelled">已取消</option>
+                </select>
+                
+                <input type="date" id="dateFrom" placeholder="开始日期">
+                <input type="date" id="dateTo" placeholder="结束日期">
+                
+                <button class="btn" onclick="applyFilters()">筛选</button>
+                <button class="btn btn-secondary" onclick="resetFilters()">重置</button>
+            </div>
+        </div>
+
+        <div class="orders-table-container">
+            <table class="orders-table">
+                <thead>
+                    <tr>
+                        <th>订单号</th>
+                        <th>客户</th>
+                        <th>商品</th>
+                        <th>金额</th>
+                        <th>状态</th>
+                        <th>下单时间</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="ordersTableBody">
+                    <!-- 订单数据将通过JavaScript动态加载 -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pagination">
+            <button class="btn" onclick="prevPage()">上一页</button>
+            <span id="pageInfo">第 1 页</span>
+            <button class="btn" onclick="nextPage()">下一页</button>
+        </div>
+    </div>
+
+    <!-- 订单详情模态框 -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>订单详情</h2>
+            <div id="orderDetails"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
