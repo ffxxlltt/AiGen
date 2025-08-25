@@ -4,6 +4,7 @@
 void quickSort(int arr[], int low, int high);
 void printArray(int arr[], int size);
 
+//增加注释
 
 void quickSort(int arr[], int low, int high) {
     if (low < high) {
